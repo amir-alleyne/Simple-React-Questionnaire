@@ -88,9 +88,9 @@ function App() {
       </form>
       <div>
           {curr > 0 && (
-            <button type="button" onClick={handleBack}>
+            <Button type="button" onClick={handleBack}>
               Previous Question
-            </button>
+            </Button>
           )}
           {curr < questions.length - 1 ? (
             <Button type="button" onClick={handleNext}>
