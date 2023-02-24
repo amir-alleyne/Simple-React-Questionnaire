@@ -37,6 +37,7 @@ function App() {
     setCurr(curr + 1);
     setAns('')
     setIsMandatory(!isMandatory);
+    console.log(isMandatory)
   };
 
   const handleBack = () => {
@@ -75,15 +76,16 @@ function App() {
 
   return (
     <div>
-      <h2>{currentQuestion.question}</h2>
+      {currentQuestion ?<div> {currentQuestion.question} </div>
+      : <div>Loading</div>}
       <form onSubmit={(event) => event.preventDefault()}>
         <input
-          type={currentQuestion.type}
+          // type={currentQuestion.type}
           placeholder='answer here'
           onChange={handleAnswerChange}
-          required={isMandatory}
+          // required={isMandatory}
          
-          requiredTxt='Fill this out bigman'
+    
         />
       </form>
       <div>
@@ -93,7 +95,8 @@ function App() {
             </Button>
           )}
           {curr < questions.length - 1 ? (
-            <Button type="button" onClick={handleNext}>
+            <Button type="button" onClick={handleNext}
+            required={isMandatory}>
               Next Question
             </Button>
           ) : (
